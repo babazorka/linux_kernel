@@ -4,12 +4,19 @@
 #include <stdio.h>
 #include <windows.h>
 
-// typedef struct kmem_cache_s kmem_cache_t;
+typedef enum {
+	NO_ERROS,
+	//NE_POSTOJI_KES,
+	NUSPELA_ALOKACIJA_SLABA,
+	NUSPELA_ALOKACIJA_SLOTA,
+	OBJEKAT_ZA_KOJE_JE_ZATEVANO_BRISANJE_SE_NE_NALAZI_U_KESU,
+	NE_MOZE_DA_SE_SRINKUJE
+} Error;
+
 typedef struct kmem_cache_s kmem_cache_t;
 typedef struct kmem_cache_s Kes;
 typedef struct s_Slab_block Slab_block;
 #define VELICINA_PAMTLJIVOG (10) // ovo bi trebalo da se izracuna
-// #define velicna_pamtljivog (floor(log2((double)995)) + 1) // ovo bi trebalo da se izracuna
 
 /////////////////////////////************************/////////////////////////////
 /////////////////////////////*******  Buddy  ********/////////////////////////////
@@ -17,7 +24,8 @@ typedef struct s_Slab_block Slab_block;
 
 typedef struct s_Buddy_block
 {
-	struct s_Buddy_block* sledeci;
+	struct s_Buddy_block* next;
+	unsigned short local;
 } Buddy_block;
 
 typedef struct
@@ -33,8 +41,8 @@ unsigned bajtove_u_min_blokova(unsigned broj_bajtova);
 unsigned min_stepen_za_broj_blokova(unsigned broj_blokova);
 unsigned podeli_blok(unsigned index);
 Buddy_block* spoji_ako_je_brat_slobodan(Buddy_block* buddy_brat, size_t* stepen_dvojke); // vrati adresu spojenog ili NULL ako nije nasao nista
-void premesti_slab(Slab_block* slab_block, unsigned char iz_praznog_slaba, Kes* kes);
-void* slot_alloc(Slab_block* slab_block, unsigned char* iz_praznog_slaba);
+void premesti_slab(Slab_block* slab_block, unsigned iz_praznog_slaba);
+void* slot_alloc(Slab_block* slab_block, unsigned* iz_praznog_slaba);
 void slab_info(Slab_block* slab_block);
 Slab_block* slab_alloc_typed(Kes* moj_kes);
 Slab_block* slab_alloc_buffered(Kes* moj_kes);
@@ -48,7 +56,9 @@ typedef struct s_Slab_block_header
 {
 	struct s_Slab_block* sledeci;
 	uintptr_t prvi_slot;
+	uintptr_t niz_slobodnih_slotova;
 	unsigned broj_slotova;
+	unsigned short local;
 	unsigned velicina_slota;
 	unsigned broj_slobodnih_slotova;
 	unsigned short stepen_dvojke;
@@ -72,14 +82,31 @@ struct kmem_cache_s
 	Slab_block* nepun;
 	Slab_block* pun;
 
-	Kes* sledeci; // pokazivac
+	unsigned short pomeraj;
+
+	Error error;
 	HANDLE mutex;
 };
-
-#define BROJ_KESEVA_ZA_BAFERE (13)
 #define BLOCK_SIZE (4096)
-#define BROJ_TIPSKIH_KESEVA (41) // jedan block
-//#define BROJ_TIPSKIH_KESEVA (97) // dva blocka
+#define BROJ_KESEVA_ZA_BAFERE (13)
+#define MIN_BROJ_KESEVA (98)
+
+#define KES_SIZE (72)
+#define SLAB_SIZE (1216)
+#define MAX_BROJ_KESEVA_U_JEDNOM_BLOKU  BLOCK_SIZE / KES_SIZE
+#define BROJ_TIPSKIH_KESEVA_ISPOD_SLABA (BLOCK_SIZE - SLAB_SIZE) / KES_SIZE
+#define	BROJ_TIPSKIH_KESEVA (41)
+#if MIN_BROJ_KESEVA < BROJ_TIPSKIH_KESEVA_ISPOD_SLABA
+#define BROJ_TIPSKIH_KESEVA		BROJ_TIPSKIH_KESEVA_ISPOD_SLABA
+#define BROJ_REZERVISANIH_BLOKOVA	(1)
+
+#else
+#define OSTATAK		(MIN_BROJ_KESEVA - BROJ_TIPSKIH_KESEVA_ISPOD_SLABA)
+#define CEILING(x,y) (((x) + (y) - 1) / (y))
+#define BROJ_BLOKOVA_ZA_OSTATAK_KESEVA		CEILING(OSTATAK,MAX_BROJ_KESEVA_U_JEDNOM_BLOKU)
+#define BROJ_REZERVISANIH_BLOKOVA	(BROJ_BLOKOVA_ZA_OSTATAK_KESEVA + 1)
+#define BROJ_TIPSKIH_KESEVA		(BROJ_TIPSKIH_KESEVA_ISPOD_SLABA + MAX_BROJ_KESEVA_U_JEDNOM_BLOKU * BROJ_BLOKOVA_ZA_OSTATAK_KESEVA)
+#endif 
 
 typedef struct s_Slab
 {
@@ -114,7 +141,6 @@ void inic_baferske_keseve();
 void inic_tipske_keseve();
 Kes* daj_prazno_mesto_za_kes();
 void oslobodi_slabove_kesa(Kes* kes);
-Slab_block* obezbedi_slab_za_typed_obj(Kes* kes, unsigned char* iz_praznog_slaba);
-void preuredi_nepune_slabove(Kes* kes);
+Slab_block* obezbedi_slab_za_typed_obj(Kes* kes, unsigned* iz_praznog_slaba);
 Slab_block* pronadji_slab_objekta_kog_brises(Kes* kes, void* obj);
 Slab_block* obrisi_objekt_u_slabu(Slab_block* slab_block, void* obj);

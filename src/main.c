@@ -4,10 +4,10 @@
 #include <assert.h>
 #include "../h/slab.h"
 #include "../test/test.h"
+#include "../h/Strukture.h"
 
 #define BLOCK_NUMBER (1000)
-//#define THREAD_NUM (1)
-#define THREAD_NUM (10)
+#define THREAD_NUM (5)
 #define ITERATIONS (1000)
 
 #define shared_size (7)
@@ -17,8 +17,6 @@ void construct(void* data)
 	static int i = 1;
 	printf_s("%d Shared object constructed.\n", i++);
 	memset(data, MASK, shared_size);
-	unsigned char* proba = data;
-	proba[0];
 }
 
 int check(void* data, size_t size)
@@ -34,7 +32,7 @@ struct objects_s
 	kmem_cache_t* cache;
 	void* data;
 };
-
+ 
 void work(void* pdata)
 {
 	struct data_s data = *(struct data_s*)pdata;
@@ -62,8 +60,8 @@ void work(void* pdata)
 		size++;
 	}
 
-	kmem_cache_info(cache);
-	kmem_cache_info(data.shared);
+	//kmem_cache_info(cache);
+	//kmem_cache_info(data.shared);
 
 	for (int i = 0; i < size; i++)
 	{
@@ -93,3 +91,5 @@ int main()
 	free(space);
 	return 0;
 }
+
+

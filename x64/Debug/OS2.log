@@ -1,1 +1,71 @@
-﻿  OS2.vcxproj -> C:\Users\SKT BABA ZOKA\Documents\GitHub\OS2\x64\Debug\OS2.exe
+﻿  lockic.c
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(108,1): warning C4005: 'BROJ_TIPSKIH_KESEVA': macro redefinition
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(98): message : see previous definition of 'BROJ_TIPSKIH_KESEVA'
+C:\Users\kaoko\Documents\GitHub\OS2\lockic.c(14,41): warning C4133: 'function': incompatible types - from 'char [6]' to 'LPCWSTR'
+  BuddyAlloc.c
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(108,1): warning C4005: 'BROJ_TIPSKIH_KESEVA': macro redefinition
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(98): message : see previous definition of 'BROJ_TIPSKIH_KESEVA'
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(16,47): warning C4047: '=': 'Buddy_block *' differs in levels of indirection from 'uintptr_t'
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(19,41): warning C4244: '+=': conversion from 'double' to 'uintptr_t', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(15,1): warning C4047: 'initializing': 'Buddy_block *' differs in levels of indirection from 'uintptr_t'
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(44,58): warning C4554: '<<': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(129,40): warning C4013: 'index_slobodnog_slota' undefined; assuming extern returning int
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(134,81): warning C4047: 'return': 'void *' differs in levels of indirection from 'uintptr_t'
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(199,17): warning C4013: 'broj_slotova' undefined; assuming extern returning int
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(217,50): warning C4244: '=': conversion from 'double' to 'uintptr_t', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(220,22): warning C4022: 'memset': pointer mismatch for actual parameter 1
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(222,54): warning C4022: 'memset': pointer mismatch for actual parameter 1
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(219,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(221,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(264,40): warning C4244: '=': conversion from 'double' to 'uintptr_t', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(267,22): warning C4022: 'memset': pointer mismatch for actual parameter 1
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(269,54): warning C4022: 'memset': pointer mismatch for actual parameter 1
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(266,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(268,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(293,52): warning C4244: 'function': conversion from 'size_t' to 'double', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(293,53): warning C4244: '=': conversion from 'double' to 'unsigned short', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(295,52): warning C4244: 'function': conversion from 'size_t' to 'double', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(295,53): warning C4244: '=': conversion from 'double' to 'unsigned short', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(330,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(336,1): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(355,92): warning C4142: 'broj_slotova': benign redefinition of type
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(356,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(357,1): warning C4244: 'initializing': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\BuddyAlloc.c(366,81): warning C4244: 'return': conversion from 'double' to 'unsigned int', possible loss of data
+  SlabAlloc.c
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(108,1): warning C4005: 'BROJ_TIPSKIH_KESEVA': macro redefinition
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(98): message : see previous definition of 'BROJ_TIPSKIH_KESEVA'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(13,13): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(25,25): warning C4477: 'sprintf_s' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'size_t'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(25,25): message : consider using '%zd' in the format string
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(27,53): warning C4244: 'function': conversion from 'size_t' to 'double', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(27,86): warning C4244: '=': conversion from 'double' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(75,26): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(97,25): warning C4133: '=': incompatible types - from 'Slab_block *' to 'Buddy_block *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(108,25): warning C4133: '=': incompatible types - from 'Slab_block *' to 'Buddy_block *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(118,25): warning C4133: '=': incompatible types - from 'Slab_block *' to 'Buddy_block *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(132,14): warning C4098: 'kes_free': 'void' function returning a value
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(205,15): warning C4013: 'oslodi_slot' undefined; assuming extern returning int
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(324,51): warning C4267: 'function': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(335,79): warning C4090: 'function': different 'const' qualifiers
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(335,80): warning C4133: '=': incompatible types - from 'Slab_block *' to 'Kes *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(346,14): warning C4047: 'return': 'int' differs in levels of indirection from 'void *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(356,15): warning C4133: '=': incompatible types - from 'Slab_block *' to 'Buddy_block *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(359,39): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\kaoko\Documents\GitHub\OS2\src\SlabAlloc.c(419,6): warning C4101: 'error': unreferenced local variable
+  main.c
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(108,1): warning C4005: 'BROJ_TIPSKIH_KESEVA': macro redefinition
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(98): message : see previous definition of 'BROJ_TIPSKIH_KESEVA'
+  slab.c
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(108,1): warning C4005: 'BROJ_TIPSKIH_KESEVA': macro redefinition
+C:\Users\kaoko\Documents\GitHub\OS2\h\Strukture.h(98): message : see previous definition of 'BROJ_TIPSKIH_KESEVA'
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(11,17): warning C4047: 'function': 'uintptr_t' differs in levels of indirection from 'void *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(11,12): warning C4024: 'slab_inic': different types for formal and actual parameter 1
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(18,6): warning C4013: 'lock' undefined; assuming extern returning int
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(20,8): warning C4013: 'unlock' undefined; assuming extern returning int
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(46,10): warning C4047: 'return': 'void *' differs in levels of indirection from 'size_t'
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(44,1): warning C4047: 'initializing': 'size_t' differs in levels of indirection from 'void *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(58,12): warning C4047: 'return': 'int' differs in levels of indirection from 'Kes *'
+C:\Users\kaoko\Documents\GitHub\OS2\src\slab.c(57,1): warning C4047: 'initializing': 'Kes *' differs in levels of indirection from 'int'
+  Generating Code...
+  OS2.vcxproj -> C:\Users\kaoko\Documents\GitHub\OS2\x64\Debug\OS2.exe
